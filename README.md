@@ -24,18 +24,18 @@ It can be used to extract the leftover files on the Kickstart 1.0 disk, as descr
 * Changed the default start sector to 0
 * Now uses getopt to retrieve command line options
 ```
- *    * Added a commandline option flag (-s) to specifiy a start sector, you can now place this in any order on the command line
- *    * Added a commandline option flag (-e) to specify an end sector, you can now place this in any order on the commandline
- *    * Added a commandline option flag (-d) to turn on debugging from the command line instead of having to recompile with the debug flag on
- *    * Added a commandline option flag (-o) to specify writing the output to a file instead of to stdout, this is usefull due to the amount of debugging that has been built into the program
+* Added a commandline option flag (-s) to specifiy a start sector, you can now place this in any order on the command line
+* Added a commandline option flag (-e) to specify an end sector, you can now place this in any order on the commandline
+* Added a commandline option flag (-d) to turn on debugging from the command line instead of having to recompile with the debug flag on
+* Added a commandline option flag (-o) to specify writing the output to a file instead of to stdout, this is usefull due to the amount of debugging that has been built into the program
 ```
 * Added quite a bit of additional debugging output, it now goes through significant detail for every sector it works on, this can help puzzle together the filesystem, I highly recommend writing to a file!
 * Significantly altered the progress of creating directories, it now creates orphaned directories at the CWD so that the directory tree present on disk is always restored as close to the original as possible
 * Significantly altered the progress of writing orphaned files
 ```
- *    * It now tries to extract the original filename as well as the parent filename before making up a filename
- *    * It also tries to place them in their respective directories
- *    * It now creates files when parsing the headers, so even files that have no recoverable data get created and you know where they would have been placed in the hierarchy
+* It now tries to extract the original filename as well as the parent filename before making up a filename
+* It also tries to place them in their respective directories
+* It now creates files when parsing the headers, so even files that have no recoverable data get created and you know where they would have been placed in the hierarchy
 ```
 * Added a much better ascii/hexdumper function which now dumps both ascii and hex, 20 characters per line (20 ascii characters + FF format for the hex codes)
 * Added many additional segmentation checks and cleaned up the memory allocation, it should be fairly rare for this utility to crash now, even with badly mangled filesystems
