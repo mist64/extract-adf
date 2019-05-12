@@ -1,8 +1,10 @@
 # extract-adf
 
-*extract-adf* is a tool that extracts files from (broken) Amiga ADF disk images.
+*extract-adf* is a tool that extracts files from (broken) Amiga _OFS_ ADF/ADZ/DMS disk images.
 
-It can be used to extract the leftover files on the Kickstart 1.0 disk, as described in <a href="http://www.pagetable.com/?p=34">Reconstructing the Leftovers on the Amiga Kickstart 1.0 Disk</a>.
+It will create all files with the correct directory hierarchy and the correct timestamps on the local filesystem.
+
+It is specially optimized for broken filesystems, and can recover as much as possible even on those. One use case is to extract the [leftover files on the Kickstart 1.0 disk](http://www.pagetable.com/?p=34).
 
 ## Usage
 
@@ -42,6 +44,8 @@ It can be used to extract the leftover files on the Kickstart 1.0 disk, as descr
 
 ### Version 1.0, 2008, Michael Steil
 
+Original version for extracting the leftover files on the Kickstart 1.0 disk.
+
 ### Version 2.0, 2011, Sigurbjorn B. Larusson
 
 * Hack to restore the file path and to pass the adf file and start sector/end sector used as an argument. This makes it possible to use on any OFS adf file and on HD OFS floppies and to tune where to start and end the process for any other purpose
@@ -79,7 +83,7 @@ It can be used to extract the leftover files on the Kickstart 1.0 disk, as descr
 * Added commandline option to force treating file as a DMS file
 * Added function to automagically determine format from file extension
 * Added support for re-creating original file timestamps
-* Added support to detect endianness and checks to not convert msb to lsb if we're running on a big endian system,i it should therefore now be possible to compile and use this on a bigendian machine, if you try it, tell me about it
+* Added support to detect endianness and checks to not convert msb to lsb if we're running on a big endian system, it should therefore now be possible to compile and use this on a big endian machine, if you try it, tell me about it
 * Fixed some minor bugs
 
 ## TODO
