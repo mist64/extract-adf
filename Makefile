@@ -1,5 +1,5 @@
 all:
-	cc -lz -o extract-adf extract-adf.c
+	cc -o extract-adf extract-adf.c -lz
 
 clean:
 	rm extract-adf
