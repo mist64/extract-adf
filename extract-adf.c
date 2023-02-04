@@ -12,8 +12,19 @@
 // Comment out if zlib support is not available (support for adz will not work)
 #define	_HAVE_ZLIB
 
-#include <libc.h>
-#include <sys/_endian.h>
+#if defined __linux__ || \
+    defined __FreeBSD__ || \
+    defined __NetBSD__ || \
+    defined __OpenBSD__
+    #include <stdio.h>
+    #include <string.h>
+    #include <time.h>
+    #include <arpa/inet.h>
+    #include <fcntl.h>
+#else
+    #include <libc.h>
+    #include <sys/_endian.h>
+#endif
 #include <sys/stat.h>
 #include <errno.h>
 #include <unistd.h>
@@ -361,7 +372,7 @@ int crunch_rle(unsigned char *source, unsigned char *source_end,
 				totalbytes++;
 				rletotalbytes++;
 			}
-			// Count is 0 than this is a literal É character
+			// Count is 0 than this is a literal 0xc9 character
 			if(count == 0) {
 				*destination++ = temp;
 				// And we've saved one rle byte
